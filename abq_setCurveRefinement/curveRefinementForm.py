@@ -1,9 +1,5 @@
 from abaqusGui import *
-from kernelAccess import *
-import abaqusConstants
-from abq_setCurveRefinement.curveRefinementSymbConsts import *
-import importlib
-if importlib.sys.version_info.major < 3: importlib.reload = reload
+from abaqusConstants import EXTRA_COARSE, COARSE, MEDIUM, FINE, EXTRA_FINE
 
 ###########################################################################
 # Class definition
@@ -16,16 +12,15 @@ class curveRefinementForm(AFXForm):
 
         self.owner = owner
         AFXForm.__init__(self, owner=owner)
-        self.cmd = AFXGuiCommand(self,'setCurveRefinement','abq_setCurveRefinement.curveRefinementUtils',registerQuery=False)
+        self.cmd = AFXGuiCommand(self,'setCurveRefinement','curveRefinementUtils',registerQuery=False)
         self.optionsKw = AFXSymConstKeyword(command=self.cmd,name='options',isRequired=True,defaultValue=COARSE.getId())
         self.partsKw =AFXTupleKeyword(command=self.cmd,name='parts',isRequired=True,opts=AFXTUPLE_TYPE_STRING)
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def getFirstDialog(self):
 
         """Return the first dialog to be posted"""
-        import abq_setCurveRefinement.curveRefinementDB
-        importlib.reload(abq_setCurveRefinement.curveRefinementDB)
-        self.db = abq_setCurveRefinement.curveRefinementDB.curveRefinementDB(self)
+        from curveRefinementDB import curveRefinementDB
+        self.db = curveRefinementDB(self)
         return self.db
 
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

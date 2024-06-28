@@ -1,6 +1,6 @@
 from abaqusGui import *
-from kernelAccess import *
-from abq_setCurveRefinement.curveRefinementSymbConsts import *
+from abaqusConstants import EXTRA_COARSE, COARSE, MEDIUM, FINE, EXTRA_FINE
+
 ###########################################################################
 # Class definition
 ###########################################################################
