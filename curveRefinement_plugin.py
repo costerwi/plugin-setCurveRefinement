@@ -24,8 +24,8 @@ if status:
         author='Dassault Systemes Simulia Corp.',
         description='This plug-in allows the user to set curve refinement'\
                     'for different parts in the model',
-        helpUrl='http://abaqus.custhelp.com/cgi-bin/abaqus.cfg'
-            '/php/enduser/std_adp.php?p_faqid=4338')
+        helpUrl='https://support.3ds.com/knowledge-base/?q=docid:QA00000008230'
+        )
 else:
     getAFXApp().getAFXMainWindow().writeToMessageArea(status)
     getAFXApp().beep()
