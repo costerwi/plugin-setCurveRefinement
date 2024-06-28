@@ -17,6 +17,6 @@ toolset.registerGuiMenuButton(
     author='Dassault Systemes Simulia Corp.',
     description='This plug-in allows the user to set curve refinement'\
                 'for different parts in the model',
-    helpUrl='https://support.3ds.com/knowledge-base/?q=docid:QA00000008230'
+    helpUrl='https://github.com/costerwi/plugin-setCurveRefinement'
     )
 
