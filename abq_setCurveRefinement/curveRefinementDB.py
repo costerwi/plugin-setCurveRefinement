@@ -6,7 +6,7 @@ from abq_setCurveRefinement.curveRefinementSymbConsts import *
 ###########################################################################
 
 class curveRefinementDB(AFXDataDialog):
-    [ID_PART, ID_ALLON, ID_ALLOFF]= range(AFXDataDialog.ID_LAST,AFXDataDialog.ID_LAST+3)
+    [ID_PART, ID_ALLON, ID_ALLOFF]= list(range(AFXDataDialog.ID_LAST,AFXDataDialog.ID_LAST+3))
 
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def __init__(self, form):
@@ -58,7 +58,7 @@ class curveRefinementDB(AFXDataDialog):
                 'associated with the current viewport.\n'
             showAFXErrorDialog(mainWindow,msg)
             return
-        self.partNames= mdb.models[self.modelName].parts.keys()
+        self.partNames= list(mdb.models[self.modelName].parts.keys())
         for partName in self.partNames:
             self.list1.appendItem(partName)
 

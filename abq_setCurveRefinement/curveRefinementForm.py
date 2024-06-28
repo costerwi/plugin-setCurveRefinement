@@ -2,6 +2,8 @@ from abaqusGui import *
 from kernelAccess import *
 import abaqusConstants
 from abq_setCurveRefinement.curveRefinementSymbConsts import *
+import importlib
+if importlib.sys.version_info.major < 3: importlib.reload = reload
 
 ###########################################################################
 # Class definition
@@ -22,7 +24,7 @@ class curveRefinementForm(AFXForm):
 
         """Return the first dialog to be posted"""
         import abq_setCurveRefinement.curveRefinementDB
-        reload(abq_setCurveRefinement.curveRefinementDB)
+        importlib.reload(abq_setCurveRefinement.curveRefinementDB)
         self.db = abq_setCurveRefinement.curveRefinementDB.curveRefinementDB(self)
         return self.db
 
@@ -36,7 +38,7 @@ class curveRefinementForm(AFXForm):
                 'associated with the current viewport.\n'
             showAFXErrorDialog(mainWindow,msg)
             return
-        if not mdb.models[self.modelName].parts.keys():
+        if not list(mdb.models[self.modelName].parts.keys()):
             showAFXErrorDialog(mainWindow,'No parts available in the current model\n')
         else:
             AFXForm.activate(self)
