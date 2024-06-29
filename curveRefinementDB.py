@@ -27,8 +27,10 @@ class curveRefinementDB(AFXDataDialog):
         p = FXHorizontalFrame(self, LAYOUT_FILL_X|LAYOUT_SIDE_BOTTOM)
         FXButton(p, text='Select All', tgt=self, sel=self.ID_ALLON)
         FXButton(p, text='Select None', tgt=self, sel=self.ID_ALLOFF)
+        FXButton(p, text='Invert', tgt=self, sel=self.ID_INV)
         FXMAPFUNC(self, SEL_COMMAND, self.ID_ALLON, curveRefinementDB.onAllOnSelected)
         FXMAPFUNC(self, SEL_COMMAND, self.ID_ALLOFF, curveRefinementDB.onAllOffSelected)
+        FXMAPFUNC(self, SEL_COMMAND, self.ID_INV, curveRefinementDB.onInvertSelected)
 
         p = FXGroupBox(self,text='Parts',opts=FRAME_GROOVE|LAYOUT_FILL_X|LAYOUT_FILL_Y)
         self.partsWidget = AFXList(p,
@@ -74,3 +76,8 @@ class curveRefinementDB(AFXDataDialog):
         "Respond to Select None button"
         self.selectParts([])
 
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    def onInvertSelected(self, sender, sel, ptr):
+        "Respond to Invert button"
+        selected = set(eval(self.form.partsKw.getValueAsString()))
+        self.selectParts( [partName for partName in self.partNames if partName not in selected] )
