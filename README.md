@@ -6,7 +6,7 @@ Based on [original plugin from Dassault](https://support.3ds.com/knowledge-base/
 
 ## Installation instructions
 
-1. Download and unzip the [latest version](https://github.com/costerwi/plugin-setCurveRefinement/releases/latest)
+1. Download and unzip the source code for the [latest release](https://github.com/costerwi/plugin-setCurveRefinement/releases/latest)
 2. Double-click the included `install.cmd` or manually copy files into your abaqus_plugins directory
 3. Restart Abaqus CAE and you will find the scripts in the Assembly module menu `plug-ins->Tools->Set Curve Refinement...`
 
