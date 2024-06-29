@@ -4,7 +4,7 @@ from curveRefinementForm import curveRefinementForm
 
 # Register commands
 
-version = '1.1-2-1'
+__version__ = '1.2-0'
 
 toolset=getAFXApp().getAFXMainWindow().getPluginToolset()
 toolset.registerGuiMenuButton(
@@ -13,10 +13,9 @@ toolset.registerGuiMenuButton(
     messageId=AFXMode.ID_ACTIVATE,
     kernelInitString='import curveRefinementUtils',
     applicableModules=['Part', 'Assembly'],
-    version=version,
+    version=__version__,
     author='Dassault Systemes Simulia Corp.',
-    description='This plug-in allows the user to set curve refinement'\
-                'for different parts in the model',
+    description='This plug-in allows the user to set curve refinement '\
+                'for some or all of the parts in the model',
     helpUrl='https://github.com/costerwi/plugin-setCurveRefinement'
     )
-
