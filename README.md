@@ -4,6 +4,8 @@ An Abaqus/CAE plug-in application to set a curve refinement setting of some or a
 
 Based on [original plugin from Dassault](https://support.3ds.com/knowledge-base/?q=docid:QA00000008230) but updated to add compatibility with Python3 (Abaqus 2024)
 
+See also: [plugin-assemblyMod](https://github.com/costerwi/plugin-assemblyMod) allows the user to graphically pick which parts of an assembly to refine.
+
 ## Installation instructions
 
 1. Download and unzip the source code for the [latest release](https://github.com/costerwi/plugin-setCurveRefinement/releases/latest)
